@@ -10,6 +10,10 @@ def index():
 def blog():
     return render_template("blog.html")
 
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
 @app.route("/base")
 def base():
     return render_template("base.html")
