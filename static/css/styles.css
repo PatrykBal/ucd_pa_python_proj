@@ -73,7 +73,7 @@ body {
 /* BLOG SECTION 1 */
 
 .blog-section-container {
-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,3 +81,8 @@ height: 100vh;
     color: #ffffff;
     margin-top: -100px;
 }
+
+/* BLOG SECTION 2 */
+
+
+

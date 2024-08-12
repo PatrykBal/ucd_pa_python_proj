@@ -17,6 +17,14 @@ def index():
 def blog():
     return render_template("blog.html")
 
+@app.route("/create")
+def create():
+    return render_template("create.html")
+
+@app.route("/posts")
+def posts():
+    return render_template("posts.html")
+
 @app.route("/logout")
 def logout():
     return render_template("logout.html")

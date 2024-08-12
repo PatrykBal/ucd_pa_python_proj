@@ -1,30 +1,35 @@
 from flask import Flask, Blueprint, render_template, request, redirect, url_for
 import csv 
+import os
 
 blog_blueprint = Blueprint('blog', __name__)
 
 @blog_blueprint.route('/blog')
 def index():
+    posts = read_posts
     return render_template('blog.html')
 
 def read_posts():
     posts = []
-    with open('posts.csv', mode='r') as file:
-        csv_reader = csv.DictReader(file)
-        for row in csv_reader:
-            posts.append(row)
+    if not os.path.exists('posts.csv'):
+        with open('posts.csv', mode='w', newline='') as file:
+            fieldnames = ['id', 'title', 'content', 'author']
+            writer = csv.DictWriter(file, fieldnames=fieldnames)
+            writer.writeheader()
+
+    else:
+        with open('posts.csv', mode='r') as file:
+            csv_reader = csv.DictReader(file)
+            for row in csv_reader:
+                posts.append(row)
+    print("Posts read from CSV:", posts)            
     return posts
 
 def write_post(post):
-    with open('posts.csv', mode='a', newline='') as file:
-        fieldnames = ['id', 'title', 'content', 'author']
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
-        writer.writerow(post)
-
-@blog_blueprint.route('/blog')
-def blog():
-    posts = read_posts()
-    return render_template('blog.html', posts=posts)
+        with open('posts.csv', mode='a', newline='') as file:
+            fieldnames = ['id', 'title', 'content', 'author']
+            writer = csv.DictWriter(file, fieldnames=fieldnames)
+            writer.writerow(post)
 
 @blog_blueprint.route('/post/<int:post_id>')
 def post(post_id):
@@ -58,6 +63,6 @@ def create():
         write_post(new_post)
             
             
-        return redirect(url_for('index'))
+        return redirect(url_for('blog.index'))
 
         return render_template('create.html')
