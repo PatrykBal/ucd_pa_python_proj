@@ -10,8 +10,17 @@
     <p style="color: rgb(253, 211, 41);">BLOG</p>
     <h1 class= "blog-sec1-text"> Here I try to combine all things surfing and tech.</h1>
         <p class="blog-sec1-text2">The things I have writen that were interesting at some point.</p>
+        <a href="{{ url_for('login') }}">Admin Login</a>
   
 </div>
+
+<ul>
+    {% for posts in posts %}
+    <li>
+        <a style="color: #ffffff;" href="{{ url_for('blog', post_id=post['id']) }}">{{ post['title'] }}</a>
+    </li>
+    {% endfor %}
+</ul>
 
 
 {% endblock %}

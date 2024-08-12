@@ -1,6 +1,9 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
+from routes.blog import blog_blueprint
 
 app = Flask(__name__)
+
+app.register_blueprint(blog_blueprint, url_prefix='/blog')
 
 @app.route("/base")
 def base():
@@ -48,4 +51,4 @@ def handle_login():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')
