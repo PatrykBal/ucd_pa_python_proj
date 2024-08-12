@@ -70,3 +70,14 @@ body {
     display: block;
 }
 
+/* BLOG SECTION 1 */
+
+.blog-section-container {
+height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    margin-top: -100px;
+}
