@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+
+{% block body %}
+
+body >
+<br>
+<br>
+<h1 class="logout-h1">Welcome  <strong class="str" >{{name}}!</strong></h1>
+<a  class="btn-logout" href="{{url_for('index')}}">Logout</a>
+ 
+
+{% endblock %}
