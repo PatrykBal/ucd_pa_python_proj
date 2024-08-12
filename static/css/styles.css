@@ -1,5 +1,48 @@
+body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
 /* HERO SECTION */
 
-.hero-section {
-    background: #000000;
+.hero-section-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -100px;
+    color: #ffffff;
+   
 }
+
+.hero-main-text {
+    font-size: 30px;
+}
+
+.text {
+    letter-spacing: 9px;
+    border-right: 5px solid;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: 
+        typing 2s steps(50),
+        cursor .4s step-end infinite alternate;
+}
+
+/* CURSOR BLINKING */
+@keyframes cursor {
+    50% { border-color: transparent;}
+}
+
+/* TYPING EFFECT */
+@keyframes typing {
+    from { width: 0 }
+}
+
+
